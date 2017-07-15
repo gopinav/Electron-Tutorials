@@ -15,7 +15,11 @@ framelessWindow = new BrowserWindow({frame: false, backgroundColor: '#800000'});
 */
 
 parentWindow = new BrowserWindow({title: 'Parent'});
-childWindow = new BrowserWindow({parent: parentWindow, modal: true, title: 'Child'});
+childWindow = new BrowserWindow({parent: parentWindow, modal: true,show: false, title: 'Child'});
+childWindow.loadURL('https://github.com');
+childWindow.once('ready-to-show', () => {
+  childWindow.show()
+});
 }
 
 app.on('ready', createWindows);
