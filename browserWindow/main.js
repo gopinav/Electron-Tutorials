@@ -1,30 +1,24 @@
-const electron = require("electron");
-const app = electron.app;
-const BrowserWindow = electron.BrowserWindow;
-//const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow} = require('electron')
 const path = require('path')
 const url = require('url')
 
 
-let win;
+let defaultWindow, dimWindow, colorWindow, framelessWindow;
+let parentWindow, childWindow;
 
-function createWindow () {
+function createWindows () {
+/* 
+defaultWindow = new BrowserWindow();
+dimWindow = new BrowserWindow({width: 400, height: 400, maxWidth: 600, maxHeight: 600});
+colorWindow = new BrowserWindow({backgroundColor: '#228b22'});
+framelessWindow = new BrowserWindow({frame: false, backgroundColor: '#800000'});
+*/
 
-  win = new BrowserWindow({width: 800, height: 600})
-
-  win.loadURL(url.format({
-    pathname: path.join(__dirname, 'index.html'),
-    protocol: 'file:',
-    slashes: true
-  }));
-
-
-  win.on('closed', () => {
-    win = null
-  });
+parentWindow = new BrowserWindow({title: 'Parent'});
+childWindow = new BrowserWindow({parent: parentWindow, modal: true, title: 'Child'});
 }
 
-app.on('ready', createWindow);
+app.on('ready', createWindows);
 
 
 app.on('window-all-closed', () => {

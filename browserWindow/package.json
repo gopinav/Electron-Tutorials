@@ -1,5 +1,5 @@
 {
-  "name": "hello-world",
+  "name": "browser-window",
   "version": "1.0.0",
   "main": "main.js",
   "devDependencies": {
