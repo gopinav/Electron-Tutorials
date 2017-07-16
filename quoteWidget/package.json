@@ -6,6 +6,9 @@
     "electron": "^1.6.11"
   },
   "scripts": {
-      "start": "electron ."
+    "start": "electron ."
+  },
+  "dependencies": {
+    "request": "^2.81.0"
   }
 }
