@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Hello World App</title>
+    <link rel="stylesheet" href="photon.min.css">
+    <link rel="stylesheet" href="styles.css">
+    
+  </head>
+  <body>
+    <div class="mainWrapper">
+      <h1>CRUD File</h1>
+    
+      <form>
+        <div class="form-group">
+          <label>File name</label>
+          <input id="fileName" type="text" class="form-control">
+        </div>      
+        <div class="form-group">
+          <label>Contents</label>
+          <textarea id="fileContents" class="form-control" rows="5"></textarea>
+        </div>
+      </form>
+      <button id="btnCreate" class="btn btn-default">Create</button>
+      <button id="btnRead" class="btn btn-default">Read</button>
+      <button id="btnDelete" class="btn btn-default">Delete</button>
+    </div>
+    <script>
+      require('./index.js')
+    </script>
+  </body>
+</html>
